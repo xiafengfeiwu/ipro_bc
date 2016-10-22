@@ -30,6 +30,7 @@ public class MainController {
 		// 初始化菜单结构
 		String menuDom = ControllerUtil.initMenuDom(menus);
 		modelAndView.addObject("menuDom", menuDom);
+		
 		return modelAndView;
 	}
 

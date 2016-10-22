@@ -8,6 +8,7 @@
     <result column="menu_level" jdbcType="CHAR" property="menuLevel" />
     <result column="menu_address" jdbcType="VARCHAR" property="menuAddress" />
     <result column="menu_status" jdbcType="CHAR" property="menuStatus" />
+    <result column="menu_sort_no" jdbcType="SMALLINT" property="menuSortNo" />
     <result column="menu_icon" jdbcType="VARCHAR" property="menuIcon" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -69,7 +70,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    menu_id, parent_menu_id, menu_name, menu_level, menu_address, menu_status, menu_icon
+    menu_id, parent_menu_id, menu_name, menu_level, menu_address, menu_status, menu_sort_no, 
+    menu_icon
   </sql>
   <select id="selectByExample" parameterType="com.pro.entity.SystemMenuExample" resultMap="BaseResultMap">
     select
@@ -105,10 +107,10 @@
   <insert id="insert" parameterType="com.pro.entity.SystemMenu">
     insert into system_menu (menu_id, parent_menu_id, menu_name, 
       menu_level, menu_address, menu_status, 
-      menu_icon)
+      menu_sort_no, menu_icon)
     values (#{menuId,jdbcType=CHAR}, #{parentMenuId,jdbcType=CHAR}, #{menuName,jdbcType=VARCHAR}, 
       #{menuLevel,jdbcType=CHAR}, #{menuAddress,jdbcType=VARCHAR}, #{menuStatus,jdbcType=CHAR}, 
-      #{menuIcon,jdbcType=VARCHAR})
+      #{menuSortNo,jdbcType=SMALLINT}, #{menuIcon,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.pro.entity.SystemMenu">
     insert into system_menu
@@ -130,6 +132,9 @@
       </if>
       <if test="menuStatus != null">
         menu_status,
+      </if>
+      <if test="menuSortNo != null">
+        menu_sort_no,
       </if>
       <if test="menuIcon != null">
         menu_icon,
@@ -153,6 +158,9 @@
       </if>
       <if test="menuStatus != null">
         #{menuStatus,jdbcType=CHAR},
+      </if>
+      <if test="menuSortNo != null">
+        #{menuSortNo,jdbcType=SMALLINT},
       </if>
       <if test="menuIcon != null">
         #{menuIcon,jdbcType=VARCHAR},
@@ -186,6 +194,9 @@
       <if test="record.menuStatus != null">
         menu_status = #{record.menuStatus,jdbcType=CHAR},
       </if>
+      <if test="record.menuSortNo != null">
+        menu_sort_no = #{record.menuSortNo,jdbcType=SMALLINT},
+      </if>
       <if test="record.menuIcon != null">
         menu_icon = #{record.menuIcon,jdbcType=VARCHAR},
       </if>
@@ -202,6 +213,7 @@
       menu_level = #{record.menuLevel,jdbcType=CHAR},
       menu_address = #{record.menuAddress,jdbcType=VARCHAR},
       menu_status = #{record.menuStatus,jdbcType=CHAR},
+      menu_sort_no = #{record.menuSortNo,jdbcType=SMALLINT},
       menu_icon = #{record.menuIcon,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -225,6 +237,9 @@
       <if test="menuStatus != null">
         menu_status = #{menuStatus,jdbcType=CHAR},
       </if>
+      <if test="menuSortNo != null">
+        menu_sort_no = #{menuSortNo,jdbcType=SMALLINT},
+      </if>
       <if test="menuIcon != null">
         menu_icon = #{menuIcon,jdbcType=VARCHAR},
       </if>
@@ -238,6 +253,7 @@
       menu_level = #{menuLevel,jdbcType=CHAR},
       menu_address = #{menuAddress,jdbcType=VARCHAR},
       menu_status = #{menuStatus,jdbcType=CHAR},
+      menu_sort_no = #{menuSortNo,jdbcType=SMALLINT},
       menu_icon = #{menuIcon,jdbcType=VARCHAR}
     where menu_id = #{menuId,jdbcType=CHAR}
   </update>

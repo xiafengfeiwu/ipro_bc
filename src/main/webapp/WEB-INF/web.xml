@@ -3,6 +3,24 @@
 	xmlns="http://java.sun.com/xml/ns/javaee"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="iPro" version="3.0">
+	
+	<context-param>
+		<param-name>WEB_TITLE</param-name>
+		<param-value>TeamUnion.com</param-value>
+	</context-param>
+	<context-param>
+		<param-name>WEB_KEYWORDS</param-name>
+		<param-value>TeamUnion.com</param-value>
+	</context-param>
+	<context-param>
+		<param-name>WEB_DESCRIPTION</param-name>
+		<param-value>TeamUnion.com</param-value>
+	</context-param>
+	<context-param>
+		<param-name>WEB_COPYRIGHT</param-name>
+		<param-value>TeamUnion.com</param-value>
+	</context-param>
+	
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:applicationContext.xml</param-value>

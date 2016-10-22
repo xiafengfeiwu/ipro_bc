@@ -8,7 +8,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <base href="<%=request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/" %>" />
-    <title>{{title}}</title>
+    <title>${__WEB_TITLE}</title>
     <meta name="keywords" content="{{keywords}}">
     <meta name="description" content="{{description}}">
     <link rel="shortcut icon" href="favicon.ico">
@@ -45,45 +45,7 @@
                         </div>
                         <div class="logo-element">Zt</div>
                     </li>
-                    
-                    <li>
-                        <a href="sys/menu" class="J_menuItem"><i class="fa fa-home"></i><span class="nav-label">主页</span></a>
-                    </li>
-                    
-                    <li>
-                        <a href="javascript:;"><i class="fa fa-home"></i><span class="nav-label">主页</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a class="J_menuItem" href="default1">主页示例一</a>
-                            </li>
-                        </ul>
-                    </li>
-                    
-                    <li>
-                        <a href="javascript:;"><i class="fa fa-bar-chart-o"></i><span class="nav-label">统计图表</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a class="J_menuItem" href="default2">百度ECharts</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;"><i class="fa fa-envelope"></i> <span class="nav-label">信箱 </span><span class="label label-warning pull-right">16</span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a class="J_menuItem" href="default3">收件箱</a></li>
-                        </ul>
-                    </li>
-                     <li>
-                        <a href="javascript:;"><i class="fa fa-flask"></i> <span class="nav-label">UI元素</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="javascript:;">树形视图 <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li><a class="J_menuItem" href="default4">jsTree</a></li>
-                                    <li><a class="J_menuItem" href="default5">Bootstrap Tree View</a></li>
-                                    <li><a class="J_menuItem" href="default6">nestable</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
+                    ${menuDom }
                 </ul>
             </div>
         </nav>
@@ -168,8 +130,8 @@
                 <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="default" frameborder="0" data-id="default" seamless></iframe>
             </div>
             <div class="footer">
-                <div class="pull-right">&copy; 2016 Zt
-                </div>
+                <div class="pull-left">数据查询耗时：${__EXE_SECOND } ms</div>
+                <div class="pull-right">&copy; 2016 Zt</div>
             </div>
         </div>
         <!--右侧部分结束-->
