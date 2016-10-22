@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pro.dao.SystemMenuMapper">
+  <resultMap id="BaseResultMap" type="com.pro.entity.SystemMenu">
+    <id column="menu_id" jdbcType="CHAR" property="menuId" />
+    <result column="parent_menu_id" jdbcType="CHAR" property="parentMenuId" />
+    <result column="menu_name" jdbcType="VARCHAR" property="menuName" />
+    <result column="menu_level" jdbcType="CHAR" property="menuLevel" />
+    <result column="menu_address" jdbcType="VARCHAR" property="menuAddress" />
+    <result column="menu_status" jdbcType="CHAR" property="menuStatus" />
+    <result column="menu_icon" jdbcType="VARCHAR" property="menuIcon" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    menu_id, parent_menu_id, menu_name, menu_level, menu_address, menu_status, menu_icon
+  </sql>
+  <select id="selectByExample" parameterType="com.pro.entity.SystemMenuExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from system_menu
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from system_menu
+    where menu_id = #{menuId,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from system_menu
+    where menu_id = #{menuId,jdbcType=CHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.pro.entity.SystemMenuExample">
+    delete from system_menu
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.pro.entity.SystemMenu">
+    insert into system_menu (menu_id, parent_menu_id, menu_name, 
+      menu_level, menu_address, menu_status, 
+      menu_icon)
+    values (#{menuId,jdbcType=CHAR}, #{parentMenuId,jdbcType=CHAR}, #{menuName,jdbcType=VARCHAR}, 
+      #{menuLevel,jdbcType=CHAR}, #{menuAddress,jdbcType=VARCHAR}, #{menuStatus,jdbcType=CHAR}, 
+      #{menuIcon,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pro.entity.SystemMenu">
+    insert into system_menu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="menuId != null">
+        menu_id,
+      </if>
+      <if test="parentMenuId != null">
+        parent_menu_id,
+      </if>
+      <if test="menuName != null">
+        menu_name,
+      </if>
+      <if test="menuLevel != null">
+        menu_level,
+      </if>
+      <if test="menuAddress != null">
+        menu_address,
+      </if>
+      <if test="menuStatus != null">
+        menu_status,
+      </if>
+      <if test="menuIcon != null">
+        menu_icon,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="menuId != null">
+        #{menuId,jdbcType=CHAR},
+      </if>
+      <if test="parentMenuId != null">
+        #{parentMenuId,jdbcType=CHAR},
+      </if>
+      <if test="menuName != null">
+        #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuLevel != null">
+        #{menuLevel,jdbcType=CHAR},
+      </if>
+      <if test="menuAddress != null">
+        #{menuAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="menuStatus != null">
+        #{menuStatus,jdbcType=CHAR},
+      </if>
+      <if test="menuIcon != null">
+        #{menuIcon,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.pro.entity.SystemMenuExample" resultType="java.lang.Long">
+    select count(*) from system_menu
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update system_menu
+    <set>
+      <if test="record.menuId != null">
+        menu_id = #{record.menuId,jdbcType=CHAR},
+      </if>
+      <if test="record.parentMenuId != null">
+        parent_menu_id = #{record.parentMenuId,jdbcType=CHAR},
+      </if>
+      <if test="record.menuName != null">
+        menu_name = #{record.menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.menuLevel != null">
+        menu_level = #{record.menuLevel,jdbcType=CHAR},
+      </if>
+      <if test="record.menuAddress != null">
+        menu_address = #{record.menuAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.menuStatus != null">
+        menu_status = #{record.menuStatus,jdbcType=CHAR},
+      </if>
+      <if test="record.menuIcon != null">
+        menu_icon = #{record.menuIcon,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update system_menu
+    set menu_id = #{record.menuId,jdbcType=CHAR},
+      parent_menu_id = #{record.parentMenuId,jdbcType=CHAR},
+      menu_name = #{record.menuName,jdbcType=VARCHAR},
+      menu_level = #{record.menuLevel,jdbcType=CHAR},
+      menu_address = #{record.menuAddress,jdbcType=VARCHAR},
+      menu_status = #{record.menuStatus,jdbcType=CHAR},
+      menu_icon = #{record.menuIcon,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pro.entity.SystemMenu">
+    update system_menu
+    <set>
+      <if test="parentMenuId != null">
+        parent_menu_id = #{parentMenuId,jdbcType=CHAR},
+      </if>
+      <if test="menuName != null">
+        menu_name = #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuLevel != null">
+        menu_level = #{menuLevel,jdbcType=CHAR},
+      </if>
+      <if test="menuAddress != null">
+        menu_address = #{menuAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="menuStatus != null">
+        menu_status = #{menuStatus,jdbcType=CHAR},
+      </if>
+      <if test="menuIcon != null">
+        menu_icon = #{menuIcon,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where menu_id = #{menuId,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pro.entity.SystemMenu">
+    update system_menu
+    set parent_menu_id = #{parentMenuId,jdbcType=CHAR},
+      menu_name = #{menuName,jdbcType=VARCHAR},
+      menu_level = #{menuLevel,jdbcType=CHAR},
+      menu_address = #{menuAddress,jdbcType=VARCHAR},
+      menu_status = #{menuStatus,jdbcType=CHAR},
+      menu_icon = #{menuIcon,jdbcType=VARCHAR}
+    where menu_id = #{menuId,jdbcType=CHAR}
+  </update>
+</mapper>
