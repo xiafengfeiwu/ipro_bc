@@ -27,7 +27,7 @@ public class InterceptorHolder extends HandlerInterceptorAdapter {
 		// 数据查询处理完成时间
 		long exeSecond = System.currentTimeMillis() - exeStSecond.get();
 		logger.debug("ExeSecond: " + exeSecond);
-		modelAndView.addObject("__EXE_SECOND", exeSecond);
+		modelAndView.addObject("EXE_SECOND", exeSecond);
 	}
 
 	@Override

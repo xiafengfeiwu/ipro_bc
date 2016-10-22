@@ -1,1 +1,1 @@
-${__EXE_SECOND } ms
+${EXE_SECOND } ms
