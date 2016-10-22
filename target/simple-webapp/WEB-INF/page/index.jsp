@@ -8,9 +8,9 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <base href="<%=request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/" %>" />
-    <title>${__WEB_TITLE}</title>
-    <meta name="keywords" content="{{keywords}}">
-    <meta name="description" content="{{description}}">
+    <title>${initParam.WEB_TITLE}</title>
+    <meta name="keywords" content="${initParam.WEB_KEYWORDS }">
+    <meta name="description" content="${initParam.WEB_DESCRIPTION }">
     <link rel="shortcut icon" href="favicon.ico">
     <link href="resources/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
     <link href="resources/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
@@ -130,8 +130,8 @@
                 <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="default" frameborder="0" data-id="default" seamless></iframe>
             </div>
             <div class="footer">
-                <div class="pull-left">数据查询耗时：${__EXE_SECOND } ms</div>
-                <div class="pull-right">&copy; 2016 Zt</div>
+                <div class="pull-left">数据查询耗时：${EXE_SECOND } ms </div>
+                <div class="pull-right">&copy; Copyright ${initParam.WEB_COPYRIGHT }</div>
             </div>
         </div>
         <!--右侧部分结束-->

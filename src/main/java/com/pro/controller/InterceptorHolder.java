@@ -23,15 +23,19 @@ public class InterceptorHolder extends HandlerInterceptorAdapter {
 	}
 
 	@Override
-	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+			ModelAndView modelAndView) throws Exception {
 		// 数据查询处理完成时间
 		long exeSecond = System.currentTimeMillis() - exeStSecond.get();
 		logger.debug("ExeSecond: " + exeSecond);
-		modelAndView.addObject("EXE_SECOND", exeSecond);
+		if (modelAndView != null) {
+			modelAndView.addObject("EXE_SECOND", exeSecond);
+		}
 	}
 
 	@Override
-	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
+			throws Exception {
 		// 页面渲染完成时间
 		long renderingSecond = System.currentTimeMillis() - exeStSecond.get();
 		logger.debug("RenderingSecond: " + renderingSecond);

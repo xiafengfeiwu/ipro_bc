@@ -85,6 +85,18 @@
 		<filter-name>SetCharacterEncoding</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
+	<servlet>
+		<display-name>defaultQuartzServlet</display-name>
+		<servlet-name>defaultQuartzServlet</servlet-name>
+		<servlet-class>com.pro.task.DelegatingServletProxy</servlet-class>
+		<init-param>
+			<param-name>cronSchedule</param-name>
+			<param-value>0 0/5 * * * ?</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
 		<url-pattern>/resources/*</url-pattern>
@@ -97,6 +109,6 @@
 		<session-timeout>120</session-timeout>
 	</session-config>
 	<welcome-file-list>
-		<welcome-file>/index.html</welcome-file>
+		<welcome-file>/index.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>

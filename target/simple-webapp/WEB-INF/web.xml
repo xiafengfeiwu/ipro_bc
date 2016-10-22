@@ -3,10 +3,29 @@
 	xmlns="http://java.sun.com/xml/ns/javaee"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="iPro" version="3.0">
+	
 	<context-param>
 		<param-name>WEB_TITLE</param-name>
 		<param-value>TeamUnion.com</param-value>
 	</context-param>
+	<context-param>
+		<param-name>WEB_KEYWORDS</param-name>
+		<param-value>TeamUnion.com</param-value>
+	</context-param>
+	<context-param>
+		<param-name>WEB_DESCRIPTION</param-name>
+		<param-value>TeamUnion.com</param-value>
+	</context-param>
+	<context-param>
+		<param-name>WEB_COPYRIGHT</param-name>
+		<param-value>TeamUnion.com</param-value>
+	</context-param>
+	
+	<context-param>
+  		<param-name>WEB_UPLOAD_PATH</param-name>
+	  	<param-value>F:\迅雷下载\</param-value>
+	</context-param>
+	
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:applicationContext.xml</param-value>
@@ -66,6 +85,18 @@
 		<filter-name>SetCharacterEncoding</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
+	<servlet>
+		<display-name>defaultQuartzServlet</display-name>
+		<servlet-name>defaultQuartzServlet</servlet-name>
+		<servlet-class>com.pro.task.DelegatingServletProxy</servlet-class>
+		<init-param>
+			<param-name>cronSchedule</param-name>
+			<param-value>0/2 * * * * ?</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
 		<url-pattern>/resources/*</url-pattern>
@@ -78,6 +109,6 @@
 		<session-timeout>120</session-timeout>
 	</session-config>
 	<welcome-file-list>
-		<welcome-file>/index.html</welcome-file>
+		<welcome-file>/index.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>

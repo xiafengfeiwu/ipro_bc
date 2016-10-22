@@ -24,8 +24,6 @@ import com.pro.model.SystemMenuModel;
 import com.pro.service.SystemMenuService;
 import com.pro.util.ControllerUtil;
 import com.pro.util.ObjectId;
-import com.pro.util.TinifyUtil;
-import com.tinify.Tinify;
 
 @Controller
 @RequestMapping("sys")

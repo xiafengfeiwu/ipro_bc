@@ -244,6 +244,76 @@ public class SystemJurisdictionExample {
             return (Criteria) this;
         }
 
+        public Criteria andJurisdictionCodeIsNull() {
+            addCriterion("jurisdiction_code is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJurisdictionCodeIsNotNull() {
+            addCriterion("jurisdiction_code is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJurisdictionCodeEqualTo(String value) {
+            addCriterion("jurisdiction_code =", value, "jurisdictionCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andJurisdictionCodeNotEqualTo(String value) {
+            addCriterion("jurisdiction_code <>", value, "jurisdictionCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andJurisdictionCodeGreaterThan(String value) {
+            addCriterion("jurisdiction_code >", value, "jurisdictionCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andJurisdictionCodeGreaterThanOrEqualTo(String value) {
+            addCriterion("jurisdiction_code >=", value, "jurisdictionCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andJurisdictionCodeLessThan(String value) {
+            addCriterion("jurisdiction_code <", value, "jurisdictionCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andJurisdictionCodeLessThanOrEqualTo(String value) {
+            addCriterion("jurisdiction_code <=", value, "jurisdictionCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andJurisdictionCodeLike(String value) {
+            addCriterion("jurisdiction_code like", value, "jurisdictionCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andJurisdictionCodeNotLike(String value) {
+            addCriterion("jurisdiction_code not like", value, "jurisdictionCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andJurisdictionCodeIn(List<String> values) {
+            addCriterion("jurisdiction_code in", values, "jurisdictionCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andJurisdictionCodeNotIn(List<String> values) {
+            addCriterion("jurisdiction_code not in", values, "jurisdictionCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andJurisdictionCodeBetween(String value1, String value2) {
+            addCriterion("jurisdiction_code between", value1, value2, "jurisdictionCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andJurisdictionCodeNotBetween(String value1, String value2) {
+            addCriterion("jurisdiction_code not between", value1, value2, "jurisdictionCode");
+            return (Criteria) this;
+        }
+
         public Criteria andJurisdictionDescriptIsNull() {
             addCriterion("jurisdiction_descript is null");
             return (Criteria) this;

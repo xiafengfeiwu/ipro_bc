@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.pro.entity.SystemJurisdiction">
     <id column="jurisdiction_id" jdbcType="CHAR" property="jurisdictionId" />
     <result column="jurisdiction_name" jdbcType="VARCHAR" property="jurisdictionName" />
+    <result column="jurisdiction_code" jdbcType="VARCHAR" property="jurisdictionCode" />
     <result column="jurisdiction_descript" jdbcType="VARCHAR" property="jurisdictionDescript" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -65,7 +66,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    jurisdiction_id, jurisdiction_name, jurisdiction_descript
+    jurisdiction_id, jurisdiction_name, jurisdiction_code, jurisdiction_descript
   </sql>
   <select id="selectByExample" parameterType="com.pro.entity.SystemJurisdictionExample" resultMap="BaseResultMap">
     select
@@ -99,10 +100,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.pro.entity.SystemJurisdiction">
-    insert into system_jurisdiction (jurisdiction_id, jurisdiction_name, jurisdiction_descript
-      )
-    values (#{jurisdictionId,jdbcType=CHAR}, #{jurisdictionName,jdbcType=VARCHAR}, #{jurisdictionDescript,jdbcType=VARCHAR}
-      )
+    insert into system_jurisdiction (jurisdiction_id, jurisdiction_name, jurisdiction_code, 
+      jurisdiction_descript)
+    values (#{jurisdictionId,jdbcType=CHAR}, #{jurisdictionName,jdbcType=VARCHAR}, #{jurisdictionCode,jdbcType=VARCHAR}, 
+      #{jurisdictionDescript,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.pro.entity.SystemJurisdiction">
     insert into system_jurisdiction
@@ -112,6 +113,9 @@
       </if>
       <if test="jurisdictionName != null">
         jurisdiction_name,
+      </if>
+      <if test="jurisdictionCode != null">
+        jurisdiction_code,
       </if>
       <if test="jurisdictionDescript != null">
         jurisdiction_descript,
@@ -123,6 +127,9 @@
       </if>
       <if test="jurisdictionName != null">
         #{jurisdictionName,jdbcType=VARCHAR},
+      </if>
+      <if test="jurisdictionCode != null">
+        #{jurisdictionCode,jdbcType=VARCHAR},
       </if>
       <if test="jurisdictionDescript != null">
         #{jurisdictionDescript,jdbcType=VARCHAR},
@@ -144,6 +151,9 @@
       <if test="record.jurisdictionName != null">
         jurisdiction_name = #{record.jurisdictionName,jdbcType=VARCHAR},
       </if>
+      <if test="record.jurisdictionCode != null">
+        jurisdiction_code = #{record.jurisdictionCode,jdbcType=VARCHAR},
+      </if>
       <if test="record.jurisdictionDescript != null">
         jurisdiction_descript = #{record.jurisdictionDescript,jdbcType=VARCHAR},
       </if>
@@ -156,6 +166,7 @@
     update system_jurisdiction
     set jurisdiction_id = #{record.jurisdictionId,jdbcType=CHAR},
       jurisdiction_name = #{record.jurisdictionName,jdbcType=VARCHAR},
+      jurisdiction_code = #{record.jurisdictionCode,jdbcType=VARCHAR},
       jurisdiction_descript = #{record.jurisdictionDescript,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -167,6 +178,9 @@
       <if test="jurisdictionName != null">
         jurisdiction_name = #{jurisdictionName,jdbcType=VARCHAR},
       </if>
+      <if test="jurisdictionCode != null">
+        jurisdiction_code = #{jurisdictionCode,jdbcType=VARCHAR},
+      </if>
       <if test="jurisdictionDescript != null">
         jurisdiction_descript = #{jurisdictionDescript,jdbcType=VARCHAR},
       </if>
@@ -176,6 +190,7 @@
   <update id="updateByPrimaryKey" parameterType="com.pro.entity.SystemJurisdiction">
     update system_jurisdiction
     set jurisdiction_name = #{jurisdictionName,jdbcType=VARCHAR},
+      jurisdiction_code = #{jurisdictionCode,jdbcType=VARCHAR},
       jurisdiction_descript = #{jurisdictionDescript,jdbcType=VARCHAR}
     where jurisdiction_id = #{jurisdictionId,jdbcType=CHAR}
   </update>

@@ -42,6 +42,10 @@
 		<rabbit.version>1.6.3.RELEASE</rabbit.version>
 		<!-- hessian 版本号 -->
 		<hessian.version>4.0.7</hessian.version>
+		<!-- kaptcha 版本号 -->
+		<kaptcha.version>2.3</kaptcha.version>
+		<!-- quartz 版本号 -->
+		<quartz.version>2.2.1</quartz.version>
 	</properties>
 
 	<build>
@@ -113,7 +117,7 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>3.0.1</version>
         </dependency>
-
+		
 		<!--单元测试依赖 -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -264,5 +268,19 @@
 		  <artifactId>tinify</artifactId>
 		  <version>RELEASE</version>
 		</dependency>
+		<!-- kaptcha -->
+		<dependency>
+		    <groupId>com.google.code.kaptcha</groupId>
+		    <artifactId>kaptcha</artifactId>
+		    <version>${kaptcha.version}</version>
+		</dependency>
+		<!-- quartz -->
+		<dependency>
+		    <groupId>org.quartz-scheduler</groupId>
+		    <artifactId>quartz</artifactId>
+		    <version>${quartz.version}</version>
+		</dependency>
+
+				
 	</dependencies>
 </project>

@@ -1,1 +1,0 @@
-${EXE_SECOND } ms

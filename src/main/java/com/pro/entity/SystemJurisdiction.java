@@ -5,6 +5,8 @@ public class SystemJurisdiction {
 
     private String jurisdictionName;
 
+    private String jurisdictionCode;
+
     private String jurisdictionDescript;
 
     public String getJurisdictionId() {
@@ -21,6 +23,14 @@ public class SystemJurisdiction {
 
     public void setJurisdictionName(String jurisdictionName) {
         this.jurisdictionName = jurisdictionName;
+    }
+
+    public String getJurisdictionCode() {
+        return jurisdictionCode;
+    }
+
+    public void setJurisdictionCode(String jurisdictionCode) {
+        this.jurisdictionCode = jurisdictionCode;
     }
 
     public String getJurisdictionDescript() {
