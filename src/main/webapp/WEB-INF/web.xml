@@ -22,6 +22,11 @@
 	</context-param>
 	
 	<context-param>
+  		<param-name>WEB_UPLOAD_PATH</param-name>
+	  	<param-value>F:\迅雷下载\</param-value>
+	</context-param>
+	
+	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:applicationContext.xml</param-value>
 	</context-param>
