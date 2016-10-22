@@ -10,7 +10,6 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import com.pro.dao.SystemMenuMapper;
 import com.pro.entity.SystemMenuExample;
 import com.pro.entity.SystemMenuExample.Criteria;
-import com.pro.service.SystemMenuService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })

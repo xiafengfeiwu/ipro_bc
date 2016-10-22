@@ -16,7 +16,7 @@
 
 </head>
 
-<body class="gray-bg">
+<body class="gray-bg">${__EXE_SECOND } ms
     <div class="row">
         <div class="col-sm-12">
             <div class="wrapper wrapper-content">

@@ -4,12 +4,12 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
 
-	<!-- 
+	
 	<properties url="file:///C:/Users/wangting/workspace/ipro/src/test/resources/generator.properties"/>
- 	-->
  	
+ 	<!-- 
 	<properties url="file:///C:/Users/SiZhongXia/Documents/MavenProject/src/test/resources/generator.properties"/>
- 	
+ 	-->
 	<!-- 数据库驱动包位置 -->
 	<classPathEntry location="${classPath}" />
 	

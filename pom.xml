@@ -45,6 +45,7 @@
 	</properties>
 
 	<build>
+		<finalName>simple-webapp</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -105,6 +106,13 @@
 			<artifactId>spring-web</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		
+		<!-- Servlet -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+        </dependency>
 
 		<!--单元测试依赖 -->
 		<dependency>
@@ -230,7 +238,6 @@
 			<artifactId>jstl</artifactId>
 			<version>${jstl.version}</version>
 		</dependency>
-
 		<!-- for rabbitmq -->
 		<dependency>
 			<groupId>com.rabbitmq</groupId>

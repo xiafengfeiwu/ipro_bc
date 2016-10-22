@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.pro.dao.SystemMenuMapper;
 import com.pro.entity.SystemMenu;
 import com.pro.entity.SystemMenuExample;
+import com.pro.entity.SystemMenuExample.Criteria;
 import com.pro.service.SystemMenuService;
 
 @Service("systemMenuService")
@@ -17,14 +18,11 @@ public class SystemMenuServiceImpl implements SystemMenuService {
 	private SystemMenuMapper systemMenuMapper;
 
 	@Override
-	public long countByExample(SystemMenuExample example) {
-
-		return systemMenuMapper.countByExample(example);
-	}
-
-	@Override
-	public List<SystemMenu> selectByExample(SystemMenuExample example) {
+	public List<SystemMenu> findAllMenus() {
+		SystemMenuExample example = new SystemMenuExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andMenuStatusEqualTo("y");
+		example.setOrderByClause("menu_sort_no asc");
 		return systemMenuMapper.selectByExample(example);
 	}
-
 }
