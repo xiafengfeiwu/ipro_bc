@@ -6,7 +6,7 @@ import java.util.List;
 import com.pro.entity.SystemMenu;
 import com.pro.model.SystemMenuModel;
 
-public class ControllerUtil {
+public class MenuUtil {
 	/***
 	 * 初始化菜单Dom数据
 	 * 

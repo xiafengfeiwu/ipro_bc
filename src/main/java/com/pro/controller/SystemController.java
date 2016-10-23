@@ -22,7 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.pro.entity.SystemMenu;
 import com.pro.model.SystemMenuModel;
 import com.pro.service.SystemMenuService;
-import com.pro.util.ControllerUtil;
+import com.pro.util.MenuUtil;
 import com.pro.util.ObjectId;
 
 @Controller
@@ -38,7 +38,7 @@ public class SystemController {
 		// 从数据库中查询菜单数据
 		List<SystemMenu> menus = systemMenuService.findAllMenus();
 		// 初始化菜单结构
-		List<SystemMenuModel> menuModels = ControllerUtil.initMenuModels(menus);
+		List<SystemMenuModel> menuModels = MenuUtil.initMenuModels(menus);
 		modelAndView.addObject("menuModels", menuModels);
 		return modelAndView;
 	}

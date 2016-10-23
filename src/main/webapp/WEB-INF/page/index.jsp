@@ -130,7 +130,6 @@
                 <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="default" frameborder="0" data-id="default" seamless></iframe>
             </div>
             <div class="footer">
-                <div class="pull-left">数据查询耗时：${EXE_SECOND } ms </div>
                 <div class="pull-right">&copy; Copyright ${initParam.WEB_COPYRIGHT }</div>
             </div>
         </div>

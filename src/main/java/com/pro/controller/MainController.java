@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.pro.entity.SystemMenu;
 import com.pro.service.SystemMenuService;
-import com.pro.util.ControllerUtil;
+import com.pro.util.MenuUtil;
 
 @Controller
 public class MainController {
@@ -29,7 +29,7 @@ public class MainController {
 		// 从数据库中查询菜单数据
 		List<SystemMenu> menus = systemMenuService.findAllMenus();
 		// 初始化菜单结构
-		String menuDom = ControllerUtil.initMenuDom(menus);
+		String menuDom = MenuUtil.initMenuDom(menus);
 		modelAndView.addObject("menuDom", menuDom);
 		return modelAndView;
 	}

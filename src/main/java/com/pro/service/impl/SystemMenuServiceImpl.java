@@ -25,4 +25,12 @@ public class SystemMenuServiceImpl implements SystemMenuService {
 		example.setOrderByClause("menu_sort_no asc");
 		return systemMenuMapper.selectByExample(example);
 	}
+
+	@Override
+	public List<SystemMenu> findRootMenus() {
+		SystemMenuExample example = new SystemMenuExample();
+		example.createCriteria().andMenuLevelEqualTo("level1");
+		example.setOrderByClause("menu_sort_no asc");
+		return systemMenuMapper.selectByExample(example);
+	}
 }
